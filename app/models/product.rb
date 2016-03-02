@@ -24,7 +24,6 @@ class Product < ActiveRecord::Base
   private
   
   #TODO: make sure this works
-  
     def ensure_not_referenced_by_any_line_items
       if line_items.empty?
         return true
