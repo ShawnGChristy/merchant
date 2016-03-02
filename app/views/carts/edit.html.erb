@@ -1,2 +1,44 @@
-<h1>Carts#edit</h1>
-<p>Find me in app/views/carts/edit.html.erb</p>
+<h1>Your Shoppin Cart</h1>
+<table class=:table table-striped table-hover">
+<thead>
+<tr>
+    <th>Product
+    Quantity
+    Unit Price
+    Total Price
+    
+    <tbody>
+    <% @cart.line_items.each do |item| %>
+        <tr>
+            <td><%= image_url item.avatar.url(:thumb) %></td>
+            class: "img-responsive img-thumbnail" %></td>
+            
+            <td><%= item.product.name %></td>
+            <td><</table>
+            </table></table></table>
+            </table> 
+            
+            
+            </table>
+        
+        
+        
+        </table>
+    
+    
+    
+    
+    
+    </table>
+    
+    
+    
+    
+    </table>
+
+
+
+</table>
+</table>
+</table>
+<h3> Order Subtotal: <%= number_to_currency @cart.subtotal %></h3>
