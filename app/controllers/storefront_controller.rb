@@ -1,7 +1,8 @@
 class StorefrontController < ApplicationController
-  def home 
+
+  def home
   end
-  
+
   def index
     if params[:search]
       @products = Product.search_by_name_or_description(params[:search])
@@ -16,7 +17,7 @@ class StorefrontController < ApplicationController
       @products = Product.all
     end
   end
-  
+
   def about
   end
 end
