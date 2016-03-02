@@ -39,6 +39,7 @@ gem 'stamp'
 gem 'simple_form'
 gem "paperclip", "~> 4.3"
 gem 'devise'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'pry-byebug'

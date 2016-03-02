@@ -1,73 +1,15 @@
-<span class="pull-right">
-  <%= form_tag(shop_path, method: :get, role: "search", class: "form-inline") do %>
-    <div class="form-group">
-      <%# TODO: hide the search label %>
-      <%# label_tag :search, class: "sr-only" %>
-      <%= text_field_tag(:search, nil, placeholder: "Search products", class: "form-control input-sm") %>
-    </div>
-    <%= submit_tag("Search", class: "btn btn-default btn-sm") %>
-  <% end %>
-</span>
-
-<h1>Welcome to Mardi Paws</h1>
-<p>Dress your pup in stuff</p>
+<%= render 'search_form' %>
 
 <% if params[:category_id] %>
- <h3>All <%= @category.name.titleize %></h3>
+  <h1>All <%= @category.name.titleize %></h1>
 <% else %>
- <h3>All Products</h3>
+  <h1>All Products</h1>
 <% end %>
 
 <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= image_tag product.avatar.url(:medium), class: "img-responsive img-rounded" %>
-
-          <span class="pull-right">
-            <h5><%= number_to_currency product.current_price %></h5>
-          </span>
-          <h5><%= product.name %></h5>
-
-          <span class="pull-right">
-            <%# TODO: Make live when we have carts model %>
-            <button class="btn btn-primary btn-xs">Add to Cart</button>
-          </span>
-          <a href="#" data-toggle="modal" data-target="#product_<%= product.id %>">
-            <small>quick info</small>
-          </a>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="product_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
-          </div>
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col-sm-8">
-                <%= image_tag product.avatar.url(:large), class: "img-responsive img-rounded" %>
-              </div>
-              <div class="col-sm-4">
-                <p><%= product.description %></p>
-                <h5><%= number_to_currency product.current_price %></h5>
-                <%# TODO: Make live when we have carts model %>
-                <button type="button" class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <% end %>
+  <%= render @products %>
+  
+  
+    
 </div>
+
