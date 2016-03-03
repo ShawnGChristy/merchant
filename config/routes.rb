@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ 
+
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
   get '/home' => 'storefront#home'
@@ -9,6 +11,12 @@ Rails.application.routes.draw do
     resources :brands
     resources :categories
   end
+
+
+#changed this to a singular resource so the id param is not in the URL for security etc
+resource :cart, only: [:edit, :update, :destroy]
+resources :line_items, only: [:create]
+resources :orders, only: [:new, :create, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
